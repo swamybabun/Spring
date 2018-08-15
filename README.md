@@ -135,10 +135,9 @@ We autowire this datasource to transaction manager.
 
 #### Transaction levels :
 
-We Can add transaction level to the code using below annotation.
+We can add transaction level to the code using below annotation.
 
 	@Transactional(isolation=TransactionDefinition.ISOLATION_DEFAULT)
-
 
 Spring has five isolation levels.
 
