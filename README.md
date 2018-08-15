@@ -139,6 +139,7 @@ We Can add transaction level to the code using below annotation.
 
 	@Transactional(isolation=TransactionDefinition.ISOLATION_DEFAULT)
 
+
 Spring has five isolation levels.
 
 - TransactionDefinition.ISOLATION_DEFAULT : Default from underlying database. For Oracle it is  READ_COMMITTED.
