@@ -134,28 +134,38 @@ We autowire this datasource to transaction manager.
 ### Transaction Isolation levels:
 
 #### Transaction levels :
-@Transactional(isolation=TransactionDefinition.ISOLATION_DEFAULT)
+
+We Can add transaction level to the code using below annotation.
+
+	@Transactional(isolation=TransactionDefinition.ISOLATION_DEFAULT)
+
 Spring has five isolation levels.
-- TransactionDefinition.ISOLATION_DEFAULT : default from underlying database. For Oracle it is  READ_COMMITTED.
+
+- TransactionDefinition.ISOLATION_DEFAULT : Default from underlying database. For Oracle it is  READ_COMMITTED.
 - TransactionDefinition.ISOLATION_SERIALIZABLE
 - TransactionDefinition.ISOLATION_READ_COMMITTED
 - TransactionDefinition.ISOLATION_READ_UNCOMMITTED
 - TransactionDefinition.ISOLATION_REPEATABLE_READ
 
 1. READ_UNCOMMITTED 
-READ_UNCOMMITTED isolation level states that a transaction may read data that is still uncommitted by other transaction.vulnerable  to dirty reads, non-repeatable reads and phantom reads.
+	
+	This isolation level states that a transaction may read data that is still uncommitted by other transaction.vulnerable  to dirty reads, non-repeatable reads and phantom reads.
 	
 2. READ_COMMITTED
-READ_COMMITTED isolation level states that a transaction can't read data that is not yet committed by other transactions. This means that the dirty read is no longer an issue but vulnerable to non-repeatable reads and phantom reads.
+	
+	This isolation level states that a transaction can't read data that is not yet committed by other transactions. This means that the dirty read is no longer an issue but vulnerable to non-repeatable reads and phantom reads.
 
 3. REPEATABLE_READ
-REPEATABLE_READ isolation level states that if a transaction reads one record from the database multiple times the result of all those reading operations must always be the same. This eliminates both the dirty read and the non-repeatable read issues, but vulnerable to phantom reads.
+	
+	This isolation level states that if a transaction reads one record from the database multiple times the result of all those reading operations must always be the same. This eliminates both the dirty read and the non-repeatable read issues, but vulnerable to phantom reads.
 
 4. SERIALIZABLE
-SERIALIZABLE isolation level is the most restrictive of all isolation levels. Transactions are executed with locking at all levels (read, range and write locking) so they appear as if they were executed in a serialized way. This leads to a scenario where none of the issues mentioned above may occur, but in the other way we don't allow transaction concurrency and consequently introduce a performance penalty.
+	
+	This isolation level is the most restrictive of all isolation levels. Transactions are executed with locking at all levels (read, range and write locking) so they appear as if they were executed in a serialized way. This leads to a scenario where none of the issues mentioned above may occur, but in the other way we don't allow transaction concurrency and consequently introduce a performance penalty.
 
 5. DEFAULT
-This isolation is from underlying database. This is springs default isolation level.
+
+	This isolation is from underlying database. This is springs default isolation level.
 
  
 | | dirty reads | non-repeatable reads |  phantom reads |
